@@ -1,3 +1,8 @@
 # figurebed
-## 小东西儿的 GitHub 图床
-## Blog:http://xiaodongxier.com
+
+> GitHub figurebed
+
+* 王永杰
+* 前端开发
+* [www.xiaodongxier.com](http://xiaodongxier.com)
+ 
