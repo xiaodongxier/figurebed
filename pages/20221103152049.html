@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百度音频批量搜索</title>
+  <!-- jquery cdn -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  
+  <script>
+    // for(var i=1369000;i<1369100;i++){
+    for(var i=1369100;i<1369200;i++){
+      // $("#app").append(`<video controls="" autoplay="" name="media"><source src="https://dumi-audiomuseum.su.bcebos.com/136961${i}.wav" type="audio/wav"></video>`)
+      $("#app").append(`<video controls="" autoplay="" name="media"><source src="https://dumi-audiomuseum.su.bcebos.com/${i}.wav" type="audio/wav"></video>`)
+    }
+  </script>
+</body>
+</html>
