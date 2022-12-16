@@ -1,0 +1,118 @@
+<!--
+ * @Date: 2022-02-10 14:36:00
+ * @LastEditTime: 2022-12-16 17:27:41
+ * @Author: WangYongJie
+ * @Work-email: wangyongjie2@gome.com.cn
+ * @Private-email: admin@xiaodongxier.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生命周期</title>
+  <script src="./static/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>通过控制台查看生命周期函数的执行过程</h1>
+      <div>
+        {{nember}}
+      </div>
+      <input type="text" v-model="nember"><hr>
+      <button @click="upDataClick">更新数据</button>
+      <button @click="delVueClick">销毁实例</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        mess:"hello world",
+        nember: 0
+      },
+      methods: {
+        upDataClick: function(){
+          this.nember ++
+        },
+        delVueClick: function(){
+          this.$destroy()
+        }
+      },
+      beforeCreate: function(){   //无法通过实例访问data数据和methods方法
+        console.table([{
+          生命周期: "beforeCreate",
+          解释说明: "无法通过实例访问data数据和methods方法",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },  
+      created: function(){    //可以通过实例访问data数据和methods方法
+        console.table([{
+          生命周期: "created",
+          解释说明: "可以通过实例访问data数据和methods方法",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+      beforeMount: function(){  // hello world 并未渲染到页面上
+        console.table([{
+          生命周期: "beforeMount",
+          解释说明: "hello world未渲染到页面上",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+      mounted: function(){    //  hellow world 已经渲染到页面上
+        console.table([{
+          生命周期: "mounted",
+          解释说明: "hello world已渲染到页面上",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+      beforeDestroy: function(){  // 实例销毁之前执行
+        console.table([{
+          生命周期: "beforeDestroy",
+          解释说明: "实例销毁之前执行",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+      destroyed: function(){  // 实例销毁之后执行
+        console.table([{
+          生命周期: "destroyed",
+          解释说明: "实例销毁之后执行",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点: this.$el
+        }])
+      },
+      beforeUpdate: function(){    // 数据发生改变，还未渲染之前
+        console.table([{
+          生命周期: "beforeUpdate",
+          解释说明: "数据发生改变，还未渲染之前",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+      updated: function(){    // 数据发生改变，重新渲染之后
+        console.table([{
+          生命周期: "updated",
+          解释说明: "数据发生改变，重新渲染之后",
+          时间戳: new Date().getTime(),
+          data数据: this.mess,
+          挂载节点:this.$el
+        }])
+      },
+    })
+  </script>
+</body>
+</html>
+
